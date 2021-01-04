@@ -85,9 +85,9 @@ function draw() {
     ground.velocityX = -(4*score/100);
 
     camera.x=trex.x;
-    if(trex.velocityY>0.5||trex.velocityY<-0.5){
-      camera.y=trex.y-50;
-    }
+    // if(trex.velocityY>0.5||trex.velocityY<-0.5){
+    //   camera.y=trex.y-50;
+    // }
     invisibleGround.x=trex.x;
     
 
@@ -178,8 +178,8 @@ function draw() {
 
 function spawnObstacles(){
 
-  //Spawn the Obstacles every 60 frames
-  if (frameCount % 60 === 0){
+  //Spawn the Obstacles
+  if (camera.position.x % 500 === 0){
     var obstacle = createSprite(trex.x+500,165,10,40);
 
     // //generate random obstacles
@@ -231,7 +231,7 @@ function restart(){
 function spawnClouds() {
 
   //spawn the clouds every 80 frames
-  if (frameCount % 60 === 0) {
+  if (camera.position.x % 100 === 0) {
     cloud = createSprite(trex.x+500,100,40,10);
     cloud.y = Math.round(random(10,60));
     cloud.addImage(cloudImage);
